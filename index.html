@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Invitation Portfolio</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Times New ', cursive;
+    background: linear-gradient(135deg,#0a0a0a, #6a0dad);
+    color: white;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(90deg, black);
+}
+
+/* Nav */
+nav {
+    text-align: center;
+    padding: 15px;
+}
+
+nav button {
+    background: linear-gradient(90deg, #6a0dad, black);
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+nav button:hover {
+    transform: scale(1.1);
+}
+
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Card */
+.card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 10px;
+    position: relative;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Badge */
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: gold;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+/* Price */
+.price {
+    margin-top: 5px;
+    font-weight: bold;
+    color: #d580ff;
+}
+
+/* Video */
+.card video {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Button */
+.book-btn {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    background: #a64dff;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.book-btn:hover {
+    background: #d580ff;
+}
+
+/* Reviews */
+/* .reviews {
+    padding: 30px;
+    text-align: center;
+}
+
+.review-card {
+    background: rgba(255,255,255,0.1);
+    margin: 10px;
+    padding: 15px;
+    border-radius: 15px;
+} */
+
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.popup video {
+    width: 80%;
+    max-height: 80vh;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+body {
+    overflow-y: auto;
+}
+
+/* contact */
+#contact {
+    margin-top: 30px;
+    padding: 40px;
+    text-align: center;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Social Media */
+.social-icons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-icons img {
+    width: 40px;
+    margin: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+}
+
+/* Logo */
+/* Sticky Header */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: linear-gradient(90deg,black,#6a0dad);
+}
+
+/* Logo + Name */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo circle */
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 2px solid white;
+    box-shadow: 0 0 10px #a64dff;
+}
+
+/* Brand Name */
+.brand-name {
+    font-family: 'Times New ', cursive;
+    color: #fff;
+}
+
+/* Title */
+.title h1 {
+    margin: 0;
+}
+
+.title h3 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+/* floating button */
+.whatsapp-float img {
+    width: 60px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #25D366;
+    transition: 0.3s;
+}
+
+.whatsapp-float img:hover {
+    transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo-container">
+        <img src="images/logo.png.png" class="logo">
+        <h3 class="brand-name">Sparkle's Designs</h3>
+    </div>
+
+    <div class="title">
+        <h1>Customized Invitation Designs</h1>
+    </div>
+</header>
+
+<nav>
+<button onclick="filterSelection('all')">All</button>
+<button onclick="filterSelection('Engagement')">Engagement</button>
+<button onclick="filterSelection('wedding')">Wedding</button>
+<button onclick="filterSelection('birthday')">Birthday</button>
+<button onclick="filterSelection('baby')">Baby Shower</button>
+<button onclick="filterSelection('house')">House Warming</button>
+</nav>
+
+<div class="gallery" id="gallery">
+
+<!-- Wedding -->
+<div class="card wedding">
+<div class="badge">Premium</div>
+<video muted onmouseover="this.play()" onmouseout="this.pause()" onclick="openPopup(this)">
+<source src="Videos/marraige.mp4/V1.mp4" type="video/mp4">
+</video>
+<p>Wedding Invite</p>
+<div class="price">₹499</div>
+<button class="book-btn" onclick="order()">Order</button>
+</div>
+
+<div class="card wedding">
+<div class="badge">Premium</div>
+<video muted onmouseover="this.play()" onmouseout="this.pause()" onclick="openPopup(this)">
+<source src="Videos/marraige.mp4/V2.mp4" type="video/mp4">
+</video>
+<p>Wedding Invite</p>
+<div class="price">₹499</div>
+<button class="book-btn" onclick="order()">Order</button>
+</div>
+
+<div class="card wedding">
+<div class="badge">Premium</div>
+<video muted onmouseover="this.play()" onmouseout="this.pause()" onclick="openPopup(this)">
+<source src="Videos/marraige.mp4/V3.mp4" type="video/mp4">
+</video>
+<p>Wedding Invite</p>
+<div class="price">₹499</div>
+<button class="book-btn" onclick="order()">Order</button>
+</div>
+
+<!-- Engagement -->
+<div class="card Engagement">
+<div class="badge">Premium</div>
+<video muted onmouseover="this.play()" onmouseout="this.pause()" onclick="openPopup(this)">
+<source src="Videos/engagement.mp4/V1.mp4" type="video/mp4">
+</video>
+<p>Engagement Invite</p>
+<div class="price">₹499</div>
+<button class="book-btn" onclick="order()">Order</button>
+</div>
+
+<!-- Birthday -->
+<div class="card birthday">
+<div class="badge">Popular</div>
+<video muted onmouseover="this.play()" onmouseout="this.pause()" onclick="openPopup(this)">
+<source src="Videos/birthday.mp4/V1.mp4" type="video/mp4">
+</video>
+<p>Birthday Invite</p>
+<div class="price">₹399</div>
+<button class="book-btn" onclick="order()">Order</button>
+</div>
+
+<div class="card birthday">
+<div class="badge">Popular</div>
+<video muted onmouseover="this.play()" onmouseout="this.pause()" onclick="openPopup(this)">
+<source src="Videos/birthday.mp4/V2.mp4" type="video/mp4">
+</video>
+<p>Birthday Invite</p>
+<div class="price">₹399</div>
+<button class="book-btn" onclick="order()">Order</button>
+</div>
+
+<!-- Baby -->
+<div class="card baby">
+<video muted onmouseover="this.play()" onmouseout="this.pause()" onclick="openPopup(this)">
+<source src="Videos/baby.shower.mp4/V1.mp4" type="video/mp4">
+</video>
+<p>Baby Shower</p>
+<div class="price">₹399</div>
+<button class="book-btn" onclick="order()">Order</button>
+</div>
+
+<!-- House -->
+<div class="card house">
+<video muted onmouseover="this.play()" onmouseout="this.pause()" onclick="openPopup(this)">
+<source src="Videos/house.warming.mp4/V1.mp4" type="video/mp4">
+</video>
+<p>House Warming</p>
+<div class="price">₹349</div>
+<button class="book-btn" onclick="order()">Order</button>
+</div>
+
+<!-- <div class="card CATEGORY">
+<div class="badge">New</div>
+<video muted onmouseover="this.play()" onmouseout="this.pause()" onclick="openPopup(this)">
+<source src="Videos/yourvideo.mp4" type="video/mp4">
+</video>
+<p>EVENT NAME</p>
+<div class="price">₹PRICE</div>
+<button class="book-btn" onclick="bookNow()">Book Now</button>
+</div> -->
+  
+</div>
+
+<!-- Reviews -->
+<!-- <section class="reviews">
+<h2>Client Reviews 💜</h2>
+<div class="review-card">⭐️⭐️⭐️⭐️⭐️ Amazing design! – Priya</div>
+<div class="review-card">⭐️⭐️⭐️⭐️ Beautiful invitation – Arun</div>
+<div class="review-card">⭐️⭐️⭐️⭐️⭐️ Loved it – Meena</div>
+</section> -->
+
+<!-- Contact -->
+<section id="contact">
+
+    <div class="social-icons">
+        <h1>Contact Us: </h1>
+
+    <!-- Phone -->
+    <a href="tel:7200928306">
+        <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png">
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:emimal0712@gmail.com">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/917200928306" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://instagram.com/custom.digital.invites" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png">
+    </a>
+
+</div>
+</section>
+
+<!-- Popup -->
+<div class="popup" id="popup">
+<span class="close" onclick="closePopup()">×</span>
+<video controls id="popupVideo"></video>
+</div>
+
+<script>
+function filterSelection(category) {
+let cards = document.getElementsByClassName("card");
+for (let i = 0; i < cards.length; i++) {
+cards[i].style.display = (category === "all" || cards[i].classList.contains(category)) ? "block" : "none";
+}
+}
+
+function order() {
+window.open("https://wa.me/917200928306?text=Hi,%20I%20want%20to%20book%20an%20invitation", "_blank");
+}
+
+function openPopup(video) {
+let popup = document.getElementById("popup");
+let popupVideo = document.getElementById("popupVideo");
+popup.style.display = "flex";
+popupVideo.src = video.querySelector("source").src;
+popupVideo.play();
+}
+
+function closePopup() {
+let popup = document.getElementById("popup");
+let popupVideo = document.getElementById("popupVideo");
+popup.style.display = "none";
+popupVideo.pause();
+}
+</script>
+
+<a href="https://wa.me/917200928306?text=Hi,%20I%20want%20to%20book%20an%20invitation" 
+   class="whatsapp-float" target="_blank">
+   <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+</a>
+
+</body>
+</html>
